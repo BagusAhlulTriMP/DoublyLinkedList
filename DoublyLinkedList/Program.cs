@@ -109,5 +109,44 @@ namespace DoublyLinkedList
             current.next.prev = previous;
             return true;
         }
+
+        public void traverse()/*Traverse the list*/
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+            {
+                Console.WriteLine("\nRecords in the ascending order of " + "roll numbers are:\n");
+                Node currentNode;
+                for (currentNode = START; currentNode != null; currentNode = currentNode.next)
+                    Console.Write(currentNode.rollNumber + " " + currentNode.name + "\n");
+            }
+        }
+
+        /*traverses the list in the reverse direction*/
+        public void revtraverse()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+            {
+                Console.WriteLine("\nRecords in the descending order of " + "roll numbers are:\n");
+                Node currentNode;
+                for (currentNode = START; currentNode.next != null; currentNode = currentNode.next)
+                { }
+                while (currentNode != null)
+                {
+                    Console.Write(currentNode.rollNumber + " " + currentNode.name + "\n");
+                    currentNode = currentNode.prev;
+                }
+            }
+        }
+        public bool listEmpty()
+        {
+            if (START == null)
+                return true;
+            else
+                return false;
+        }
     }
 }
